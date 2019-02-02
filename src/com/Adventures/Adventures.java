@@ -36,7 +36,7 @@ public class Adventures {
         if (stringHttpResponse.getStatus() == STATUS_OK) {
             String json = stringHttpResponse.getBody();
             Gson gson = new Gson();
-            final Room newsCollection = gson.fromJson(json, Room.class);
+            final Room roomCollection = gson.fromJson(json, Room.class);
         }
     }
 

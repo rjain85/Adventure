@@ -1,12 +1,14 @@
 package com.Adventures;
 
+import java.util.ArrayList;
+
 public class Layout {
 
     private String startingRoom;
 
     private String endingRoom;
 
-    private Room[] rooms;
+    private ArrayList<Room> rooms = new ArrayList<>() ;
 
     public String getStartingRoom() {
         return startingRoom;
@@ -16,8 +18,8 @@ public class Layout {
         return endingRoom;
     }
 
-    public Room[] getRooms() {
+    public ArrayList<Room> getRooms() {
         return rooms;
     }
-
+    
 }
