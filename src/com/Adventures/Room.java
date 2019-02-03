@@ -8,7 +8,7 @@ public class Room {
 
     private String description;
 
-    private ArrayList<Directions> directions;
+    private ArrayList<Direction> directions;
 
     public String getName() {
         return name;
@@ -18,7 +18,7 @@ public class Room {
         return description;
     }
 
-    public ArrayList<Directions> getDirections() {
+    public ArrayList<Direction> getDirections() {
         return directions;
     }
 

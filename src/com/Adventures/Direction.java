@@ -1,6 +1,6 @@
 package com.Adventures;
 
-public class Directions {
+public class Direction {
 
     private String directionName;
 
