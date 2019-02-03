@@ -27,9 +27,13 @@ public class Main {
         Scanner takesUserInput = new Scanner(System.in);
 
         System.out.println(gamePlay.initializeGame());
-        Room currentRoom = gamePlay.gameLayout.getRooms().get(0);
+        Room currentRoom = gameLayout.getRooms().get(0);
+
         while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
             String currentInput = takesUserInput.nextLine();
+            if (gamePlay.gameOver(currentInput)) {
+                break;
+            }
             if (gamePlay.checkUserInput(currentInput, currentRoom) != null) {
                 currentRoom = gamePlay.findRoomByName(gamePlay.checkUserInput(currentInput, currentRoom).getRoom());
             }

@@ -16,9 +16,9 @@ public class Adventures {
 
     public String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
 
-    public String exitGame = ("EXIT");
+    public String exitMessage = ("exit");
 
-    public boolean gameRunning = true;
+    public String quitMessage = ("quit");
 
     public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
@@ -83,6 +83,15 @@ public class Adventures {
             }
         }
         return null;
+    }
+
+    public boolean gameOver (final String userInput) {
+        String userInputEdited = userInput.replaceAll("\\s+","");
+        userInputEdited = userInputEdited.toLowerCase();
+        if (userInputEdited.equals(exitMessage) || userInputEdited.equals(quitMessage)) {
+            return true;
+        }
+        return false;
     }
 
 }

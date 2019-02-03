@@ -24,11 +24,19 @@ public class Room {
 
     public StringBuilder createOptions() {
         StringBuilder presentOptions =  new StringBuilder("From here, you can go: ");
-        for (int i = 0; i < getDirections().size(); i++) {
-            presentOptions.append(getDirections().get(i).getDirectionName());
+
+        if (getDirections().size() == 1) {
+            presentOptions.append(getDirections().get(0).getDirectionName());
+            return presentOptions;
+        } else {
+            for (int i = 0; i < getDirections().size() - 1; i++) {
+                presentOptions.append(getDirections().get(i).getDirectionName());
+                presentOptions.append(", ");
+            }
+            presentOptions.append("or ");
+            presentOptions.append(getDirections().get(getDirections().size() - 1).getDirectionName());
+            presentOptions.append(".");
+            return presentOptions;
         }
-        return presentOptions;
     }
-
-
 }
