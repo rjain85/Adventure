@@ -18,7 +18,7 @@ public class Adventures {
 
     public String exitGame = ("EXIT");
 
-    public boolean gameRunning = false;
+    public boolean gameRunning = true;
 
     public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
@@ -40,16 +40,49 @@ public class Adventures {
         }
     }
 
-    public StringBuilder createCantGoMessage(String whereToGo) {
-        return new StringBuilder("I can't go to " + whereToGo);
+    public void createCantGoMessage(final String whereToGo) {
+        System.out.println("I can't go to '" + whereToGo + "'");
+    }
+
+    public void createDontUnderstandMessage(final String meaninglessPhrase) {
+        System.out.println("I don't understand '" + meaninglessPhrase + "'");
     }
 
     public StringBuilder initializeGame() {
         return new StringBuilder(beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
     }
 
-    public String takeUserInput(Scanner scanner) {
+    //https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
 
+    public Direction checkUserInput(final String userInput, final Room currentRoom) {
+        String userInputEdited = userInput.replaceAll("\\s+","");
+        userInputEdited = userInputEdited.toLowerCase();
+        if (userInputEdited.length() < 2) {
+            createDontUnderstandMessage(userInput);
+            return null;
+        }
+        String checkGo = userInputEdited.substring(0, 2);
+        if (!checkGo.equals("go")) {
+            createDontUnderstandMessage(userInput);
+            return null;
+        }
+        String checkDirection = userInputEdited.substring(2,(userInputEdited.length()));
+        for (Direction possibleDirection : currentRoom.getDirections()) {
+            if (checkDirection.equals(possibleDirection.getDirectionName().toLowerCase())) {
+                return possibleDirection;
+            }
+        }
+        createCantGoMessage(userInput);
+        return null;
+    }
+
+    public Room findRoomByName(final String roomName) {
+        for (Room room: gameLayout.getRooms()) {
+            if (roomName.equals(room.getName())) {
+                return room;
+            }
+        }
+        return null;
     }
 
 }

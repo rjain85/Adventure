@@ -5,6 +5,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.net.MalformedURLException;
 import java.util.Scanner;
 
+import static com.Adventures.Adventures.gameLayout;
 import static com.Adventures.Adventures.makeApiRequest;
 
 public class Main {
@@ -23,10 +24,18 @@ public class Main {
 
         Adventures gamePlay = new Adventures();
 
-        Scanner gameInput = new Scanner(System.in);
+        Scanner takesUserInput = new Scanner(System.in);
 
+        System.out.println(gamePlay.initializeGame());
         while (gamePlay.gameRunning) { //Note to me: if check the user input and adjust gameRunning accordingly in every method that looks at user input.
-            System.out.println(gamePlay.initializeGame());
+            Room currentRoom = gamePlay.gameLayout.getRooms().get(0);
+            while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+                String currentInput = takesUserInput.nextLine();
+                if (gamePlay.checkUserInput(currentInput, currentRoom) != null ) {
+                    currentRoom = gamePlay.findRoomByName(gamePlay.checkUserInput(currentInput, currentRoom).getRoom());
+                }
+
+            }
         }
 
     }
