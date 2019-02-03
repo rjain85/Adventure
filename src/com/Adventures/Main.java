@@ -25,8 +25,9 @@ public class Main {
 
         Scanner gameInput = new Scanner(System.in);
 
-        System.out.println("");
-        System.out.println(gamePlay.beginGame);
+        while (gamePlay.gameRunning) { //Note to me: if check the user input and adjust gameRunning accordingly in every method that looks at user input.
+            System.out.println(gamePlay.initializeGame());
+        }
 
     }
 }

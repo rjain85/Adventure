@@ -25,7 +25,7 @@ public class Room {
     public StringBuilder createOptions() {
         StringBuilder presentOptions =  new StringBuilder("From here, you can go: ");
         for (int i = 0; i < getDirections().size(); i++) {
-            presentOptions.append(getDirections().get(i));
+            presentOptions.append(getDirections().get(i).getDirectionName());
         }
         return presentOptions;
     }

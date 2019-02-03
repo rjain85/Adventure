@@ -7,15 +7,18 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 public class Adventures {
     private static final int STATUS_OK = 200;
 
-    private static Layout gameLayout;
+    public static Layout gameLayout;
 
-    String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
+    public String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
 
-    private String exitGame = ("EXIT");
+    public String exitGame = ("EXIT");
+
+    public boolean gameRunning = false;
 
     public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
@@ -37,9 +40,16 @@ public class Adventures {
         }
     }
 
-    private StringBuilder createCantGoMessage(String whereToGo) {
-        StringBuilder cantGoMessage =  new StringBuilder("I can't go to " + whereToGo);
-        return cantGoMessage;
+    public StringBuilder createCantGoMessage(String whereToGo) {
+        return new StringBuilder("I can't go to " + whereToGo);
+    }
+
+    public StringBuilder initializeGame() {
+        return new StringBuilder(beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
+    }
+
+    public String takeUserInput(Scanner scanner) {
+
     }
 
 }
