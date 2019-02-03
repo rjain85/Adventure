@@ -9,7 +9,7 @@ import static com.Adventures.Adventures.gameLayout;
 import static com.Adventures.Adventures.makeApiRequest;
 
 public class Main {
-    public static void main(String [] arguments) {
+    public static void main(String[] arguments) {
         String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
 
         // Make an HTTP request to the above URL
@@ -27,16 +27,16 @@ public class Main {
         Scanner takesUserInput = new Scanner(System.in);
 
         System.out.println(gamePlay.initializeGame());
-        while (gamePlay.gameRunning) { //Note to me: if check the user input and adjust gameRunning accordingly in every method that looks at user input.
-            Room currentRoom = gamePlay.gameLayout.getRooms().get(0);
-            while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
-                String currentInput = takesUserInput.nextLine();
-                if (gamePlay.checkUserInput(currentInput, currentRoom) != null ) {
-                    currentRoom = gamePlay.findRoomByName(gamePlay.checkUserInput(currentInput, currentRoom).getRoom());
-                }
-
+        Room currentRoom = gamePlay.gameLayout.getRooms().get(0);
+        while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+            String currentInput = takesUserInput.nextLine();
+            if (gamePlay.checkUserInput(currentInput, currentRoom) != null) {
+                currentRoom = gamePlay.findRoomByName(gamePlay.checkUserInput(currentInput, currentRoom).getRoom());
+            }
+            System.out.println(currentRoom.getDescription());
+            if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+                System.out.println(currentRoom.createOptions());
             }
         }
-
     }
 }
