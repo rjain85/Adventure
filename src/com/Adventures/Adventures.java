@@ -11,21 +11,13 @@ import java.net.URL;
 public class Adventures {
     private static final int STATUS_OK = 200;
 
-    public static void main(String [] arguments) {
-        String url = "https://courses.engr.illinois.edu/cs126/adventure/circular.json";
+    private static Layout gameLayout;
 
-        // Make an HTTP request to the above URL
-        try {
-            makeApiRequest(url);
-        } catch (UnirestException e) {
-//            e.printStackTrace();
-            System.out.println("Network not responding");
-        } catch (MalformedURLException e) {
-            System.out.println("Bad URL: " + url);
-        }
-    }
+    String beginGame = ("Your journey begins here");
 
-    static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
+    private String exitGame = ("EXIT");
+
+    public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
 
         // This will throw MalformedURLException if the url is malformed.
@@ -36,8 +28,18 @@ public class Adventures {
         if (stringHttpResponse.getStatus() == STATUS_OK) {
             String json = stringHttpResponse.getBody();
             Gson gson = new Gson();
-            final Room roomCollection = gson.fromJson(json, Room.class);
+            try {
+                gameLayout = gson.fromJson(json, Layout.class);
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+
         }
+    }
+
+    private StringBuilder createCantGoMessage(String whereToGo) {
+        StringBuilder cantGoMessage =  new StringBuilder("I can't go to " + whereToGo);
+        return cantGoMessage;
     }
 
 }
