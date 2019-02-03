@@ -9,7 +9,7 @@ import static com.Adventures.Adventures.makeApiRequest;
 
 public class Main {
     public static void main(String [] arguments) {
-        String url = "https://courses.engr.illinois.edu/cs126/adventure/circular.json";
+        String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
 
         // Make an HTTP request to the above URL
         try {
@@ -25,6 +25,7 @@ public class Main {
 
         Scanner gameInput = new Scanner(System.in);
 
+        System.out.println("");
         System.out.println(gamePlay.beginGame);
 
     }

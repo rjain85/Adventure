@@ -13,7 +13,7 @@ public class Adventures {
 
     private static Layout gameLayout;
 
-    String beginGame = ("Your journey begins here");
+    String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
 
     private String exitGame = ("EXIT");
 

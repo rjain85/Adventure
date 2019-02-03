@@ -8,7 +8,7 @@ public class Layout {
 
     private String endingRoom;
 
-    private ArrayList<Rooms> rooms;
+    private ArrayList<Room> rooms;
 
     public String getStartingRoom() {
         return startingRoom;
@@ -18,7 +18,7 @@ public class Layout {
         return endingRoom;
     }
 
-    public ArrayList<Rooms> getRooms() {
+    public ArrayList<Room> getRooms() {
         return rooms;
     }
 
