@@ -14,6 +14,10 @@ public class Adventures {
 
     public static Layout gameLayout;
 
+    public static Layout getGameLayout() {
+        return gameLayout;
+    }
+
     public String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
 
     public String exitMessage = ("exit");
