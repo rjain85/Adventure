@@ -11,16 +11,7 @@ import static com.Adventures.Adventures.makeApiRequest;
 public class Main {
     public static void main(String[] arguments) {
         String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
-
-        // Make an HTTP request to the above URL
-        try {
-            makeApiRequest(url);
-        } catch (UnirestException e) {
-//            e.printStackTrace();
-            System.out.println("Network not responding");
-        } catch (MalformedURLException e) {
-            System.out.println("Bad URL: " + url);
-        }
+        apiRequestWrapper(url);
 
         Adventures gamePlay = new Adventures();
 
@@ -41,6 +32,17 @@ public class Main {
             if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
                 System.out.println(currentRoom.createOptions());
             }
+        }
+    }
+
+    public static void apiRequestWrapper(String url) {
+        try {
+            makeApiRequest(url);
+        } catch (UnirestException e) {
+//            e.printStackTrace();
+            System.out.println("Network not responding");
+        } catch (MalformedURLException e) {
+            System.out.println("Bad URL: " + url);
         }
     }
 }

@@ -22,8 +22,12 @@ public class AdventuresTest {
     }
 
     @Test
-    public void parseRoomName() throws Exception {
+    public void parseStartingRoomName() throws Exception {
         assertEquals("MatthewsStreet", Adventures.getGameLayout().getStartingRoom());
+    }
+
+    @Test public void parseEndingRoomName() throws Exception {
+        assertEquals("Siebel1314", Adventures.getGameLayout().getEndingRoom());
     }
 
 }
