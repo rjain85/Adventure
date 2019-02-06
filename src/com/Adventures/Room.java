@@ -22,20 +22,20 @@ public class Room {
         return directions;
     }
 
-    public StringBuilder createOptions() {
-        StringBuilder presentOptions =  new StringBuilder("From here, you can go: ");
+    public String createOptions() {
+        String presentOptions = ("From here, you can go: ");
 
         if (getDirections().size() == 1) {
-            presentOptions.append(getDirections().get(0).getDirectionName());
+            presentOptions+= (getDirections().get(0).getDirectionName());
             return presentOptions;
         } else {
             for (int i = 0; i < getDirections().size() - 1; i++) {
-                presentOptions.append(getDirections().get(i).getDirectionName());
-                presentOptions.append(", ");
+                presentOptions+=(getDirections().get(i).getDirectionName());
+                presentOptions+=(", ");
             }
-            presentOptions.append("or ");
-            presentOptions.append(getDirections().get(getDirections().size() - 1).getDirectionName());
-            presentOptions.append(".");
+            presentOptions+=("or ");
+            presentOptions+=(getDirections().get(getDirections().size() - 1).getDirectionName());
+            presentOptions+=(".");
             return presentOptions;
         }
     }
