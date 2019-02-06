@@ -2,6 +2,9 @@ package com.Adventures;
 
 import java.util.ArrayList;
 
+/**
+ * contains Objects and getters for the Layout class.
+ */
 public class Layout {
 
     private String startingRoom;

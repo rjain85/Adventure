@@ -53,6 +53,7 @@ public class AdventuresTest {
         assertEquals("SiebelEntry", Adventures.getGameLayout().getRooms().get(0).getDirections().get(0).getRoom());
     }
 
+
     @Test
     public void createCorrectOptionsMessage() throws Exception {
         assertEquals("From here, you can go: East", Adventures.getGameLayout().getRooms().get(0).createOptions());
