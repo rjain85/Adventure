@@ -14,7 +14,9 @@ import java.util.Scanner;
  */
 
 public class Adventures {
-
+    /**
+     * code for HTTP instance okay
+     */
     private static final int STATUS_OK = 200;
 
     public static Layout gameLayout;
@@ -144,5 +146,4 @@ public class Adventures {
             return false;
         }
     }
-
 }
