@@ -12,7 +12,6 @@ import java.util.Scanner;
 /**
  * This class hold the methods and objects for the whole game.
  */
-
 public class Adventures {
 
     /**
