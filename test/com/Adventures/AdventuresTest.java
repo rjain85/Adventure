@@ -30,4 +30,8 @@ public class AdventuresTest {
         assertEquals("Siebel1314", Adventures.getGameLayout().getEndingRoom());
     }
 
+    /**@Test public void parseRoom() throws Exception {
+        assertEquals();
+    }**/
+
 }
