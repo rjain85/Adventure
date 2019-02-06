@@ -68,9 +68,9 @@ public class Adventures {
             if (gameOver(currentInput)) {
                 break;
             }
-            if (checkForUrl(currentInput)) {
+            if (validUrl(currentInput)) {
                 Scanner newScanner = new Scanner(System.in);
-                checkForUrl(currentInput);
+                validUrl(currentInput);
                 createGameLooper(gameLayout.getRooms().get(0), newScanner);
                 break;
             }
@@ -92,8 +92,8 @@ public class Adventures {
         System.out.println("I don't understand '" + meaninglessPhrase + "'");
     }
 
-    public StringBuilder initializeGame() {
-        return new StringBuilder(beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
+    public String initializeGame() {
+        return new String(beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
     }
 
     //https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
@@ -138,7 +138,7 @@ public class Adventures {
         return false;
     }
 
-    public boolean checkForUrl (String userInput) {
+    public boolean validUrl(String userInput) {
         if (userInput.length() > 8 && userInput.substring(0, 8).equals("https://")) {
             catchApiRequestExceptions(userInput);
             return true;
