@@ -9,7 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+/**
+ * This class hold the methods and objects for the whole game.
+ */
+
 public class Adventures {
+
     private static final int STATUS_OK = 200;
 
     public static Layout gameLayout;
@@ -23,6 +28,18 @@ public class Adventures {
     public String exitMessage = ("exit");
 
     public String quitMessage = ("quit");
+
+
+    public static void catchApiRequestExceptions(String url) {
+        try {
+            makeApiRequest(url);
+        } catch (UnirestException e) {
+//            e.printStackTrace();
+            System.out.println("Network not responding");
+        } catch (MalformedURLException e) {
+            System.out.println("Bad URL: " + url);
+        }
+    }
 
     public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
@@ -41,6 +58,28 @@ public class Adventures {
                 System.out.println(e.toString());
             }
 
+        }
+    }
+
+    public void createGameLooper (Room currentRoom, Scanner takesUserInput ) {
+        while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+            String currentInput = takesUserInput.nextLine();
+            if (gameOver(currentInput)) {
+                break;
+            }
+            if (checkForUrl(currentInput)) {
+                Scanner newScanner = new Scanner(System.in);
+                checkForUrl(currentInput);
+                createGameLooper(gameLayout.getRooms().get(0), newScanner);
+                break;
+            }
+            if (checkUserInput(currentInput, currentRoom) != null) {
+                currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
+            }
+            System.out.println(currentRoom.getDescription());
+            if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+                System.out.println(currentRoom.createOptions());
+            }
         }
     }
 
@@ -96,6 +135,15 @@ public class Adventures {
             return true;
         }
         return false;
+    }
+
+    public boolean checkForUrl (String userInput) {
+        if (userInput.length() > 8 && userInput.substring(0, 8).equals("https://")) {
+            catchApiRequestExceptions(userInput);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
