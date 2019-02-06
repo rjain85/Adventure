@@ -7,11 +7,12 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 
 public class AdventuresTest {
 
-    String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
+    private String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
 
     private static Adventures testingAdventure;
 
@@ -64,12 +65,12 @@ public class AdventuresTest {
 
     @Test
     public void checkUserInputOneCharacterOneNull() throws Exception {
-        assertEquals(null, testingAdventure.checkUserInput("g", Adventures.getGameLayout().getRooms().get(0)));
+        assertNull(testingAdventure.checkUserInput("g", Adventures.getGameLayout().getRooms().get(0)));
     }
 
     @Test
     public void checkUserInputGoNonDirectionReturnNull() throws Exception {
-        assertEquals(null, testingAdventure.checkUserInput("go there", Adventures.getGameLayout().getRooms().get(0)));
+        assertNull(testingAdventure.checkUserInput("go there", Adventures.getGameLayout().getRooms().get(0)));
     }
 
     @Test

@@ -29,6 +29,8 @@ public class Adventures {
 
     public String quitMessage = ("quit");
 
+    public String initializeGame = (beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
+
 
     public static void catchApiRequestExceptions(String url) {
         try {
@@ -90,10 +92,6 @@ public class Adventures {
 
     public void createDontUnderstandMessage(final String meaninglessPhrase) {
         System.out.println("I don't understand '" + meaninglessPhrase + "'");
-    }
-
-    public String initializeGame() {
-        return new String(beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
     }
 
     //https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java

@@ -15,7 +15,7 @@ public class Main {
 
         Scanner takesUserInput = new Scanner(System.in);
 
-        System.out.println(gamePlay.initializeGame());
+        System.out.println(gamePlay.initializeGame);
 
         Room currentRoom = gameLayout.getRooms().get(0);
 
