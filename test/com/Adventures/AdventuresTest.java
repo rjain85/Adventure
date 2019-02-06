@@ -53,6 +53,7 @@ public class AdventuresTest {
         assertEquals("SiebelEntry", Adventures.getGameLayout().getRooms().get(0).getDirections().get(0).getRoom());
     }
 
+    // Tests for createOptions
 
     @Test
     public void createCorrectOptionsMessage() throws Exception {
@@ -63,6 +64,8 @@ public class AdventuresTest {
     public void CreateCorrectOptionsMessageMultipleDirections() throws Exception {
         assertEquals("From here, you can go: West, Northeast, North, or East.", Adventures.getGameLayout().getRooms().get(1).createOptions());
     }
+
+    // Tests for checkUserInput
 
     @Test
     public void checkUserInputOneCharacterOneNull() throws Exception {
@@ -89,10 +92,14 @@ public class AdventuresTest {
         assertEquals("East", testingAdventure.checkUserInput("go  eaSt", Adventures.getGameLayout().getRooms().get(0)).getDirectionName());
     }
 
+    // Tests for findRoomByName
+
     @Test
     public void findSiebelEntryRoomBeforeName() throws Exception {
         assertEquals("SiebelEntry", Adventures.getGameLayout().getRooms().get(0).getDirections().get(0).getRoom());
     }
+
+    // Tests for gameOver
 
     @Test
     public void gameOverQuitTrue() throws Exception {
@@ -127,6 +134,8 @@ public class AdventuresTest {
     public void gameOverFalse() throws Exception {
         assertFalse(testingAdventure.gameOver("q"));
     }
+
+    // Tests for validUrl
 
     @Test
     public void validUrlTrue() throws Exception {
