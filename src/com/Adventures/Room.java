@@ -13,6 +13,8 @@ public class Room {
 
     private ArrayList<Direction> directions;
 
+    private ArrayList<Item> items;
+
     public String getName() {
         return name;
     }
@@ -23,6 +25,10 @@ public class Room {
 
     public ArrayList<Direction> getDirections() {
         return directions;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
     /**
