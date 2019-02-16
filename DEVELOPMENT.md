@@ -17,4 +17,3 @@ I plan to:
   - create a separate class for JSON parsing
 - Improve Automatic Testing:
   - Test game logic, perhaps simulate a game
-  

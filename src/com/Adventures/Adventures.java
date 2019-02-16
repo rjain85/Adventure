@@ -40,12 +40,12 @@ public class Adventures {
     /**
      * Message that allows you to exit game.
      */
-    public String exitMessage = ("exit");
+    public String exitMessage = "exit";
 
     /**
      * Alternative message that allows you to quit game.
      */
-    public String quitMessage = ("quit");
+    public String quitMessage = "quit";
 
     /**
      * Message that initializes game with first set of options.
