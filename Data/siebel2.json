@@ -9,8 +9,14 @@
         {
           "directionName": "East",
           "room": "SiebelEntry",
-          "enabled": ""
+          "enabled": "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -20,23 +26,38 @@
         {
           "directionName": "West",
           "room": "MatthewsStreet",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         },
         {
           "directionName": "Northeast",
           "room": "AcmOffice",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         },
         {
           "directionName": "North",
           "room": "SiebelNorthHallway",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         },
         {
           "directionName": "East",
           "room": "SiebelEastHallway",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -46,8 +67,14 @@
         {
           "directionName": "South",
           "room": "SiebelEntry",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -57,13 +84,22 @@
         {
           "directionName": "South",
           "room": "SiebelEntry",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }, 
         {
           "directionName": "NorthEast",
           "room": "Siebel1112",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -73,8 +109,14 @@
         {
           "directionName": "West",
           "room": "SiebelNorthHallway",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -84,18 +126,30 @@
         {
           "directionName": "West",
           "room": "SiebelEntry",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         },
         {
           "directionName": "South",
           "room": "Siebel1314",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         },
         {
           "directionName": "Down",
           "room": "SiebelBasement",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -105,8 +159,14 @@
         {
           "directionName": "North",
           "room": "SiebelEastHallway",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     },
     {
@@ -116,9 +176,20 @@
         {
           "directionName": "Up",
           "room": "SiebelEastHallway",
-          "enabled" : ""
+          "enabled" : "",
+          "validKeyNames": [
+
+          ]
         }
+      ],
+      "items": [
+
       ]
     }
-  ]
+  ],
+  "Player": {
+    "items": [
+
+    ]
+  }
 }
