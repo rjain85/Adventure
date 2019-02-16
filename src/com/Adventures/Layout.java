@@ -30,4 +30,5 @@ public class Layout {
     public Player getPlayer() {
         return player;
     }
+
 }
