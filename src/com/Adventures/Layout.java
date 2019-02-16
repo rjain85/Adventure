@@ -13,6 +13,8 @@ public class Layout {
 
     private ArrayList<Room> rooms;
 
+    private Player player;
+
     public String getStartingRoom() {
         return startingRoom;
     }
@@ -25,4 +27,7 @@ public class Layout {
         return rooms;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 }
