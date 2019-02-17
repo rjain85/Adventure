@@ -15,6 +15,8 @@ public class Room {
 
     private ArrayList<Item> items;
 
+    private ArrayList<Spell> spell;
+
     public String getName() {
         return name;
     }
@@ -29,6 +31,10 @@ public class Room {
 
     public ArrayList<Item> getItems() {
         return items;
+    }
+
+    public ArrayList<Spell> getSpells() {
+        return spell;
     }
 
     /**

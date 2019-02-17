@@ -154,13 +154,13 @@
       "description": "You are on the charms corridor. The third floor corridor is to your left and the Charms classroom is in front of you. You can see the Grand Staircase.",
       "directions": [
         {
-          "directionName": "left",
+          "directionName": "right",
           "room": "ThirdFloorCorridor",
           "enabled": true,
           "validKeyNames": []
         },
         {
-          "directionName": "right",
+          "directionName": "left",
           "room": "CharmsClassroom",
           "enabled": true,
           "validKeyNames": []
@@ -173,22 +173,36 @@
       "description": "You are in the charms classroom.",
       "directions": [
         {
-          "directionName": "left",
-          "room": "ThirdFloorCorridor",
-          "enabled": true,
-          "validKeyNames": []
-        },
-        {
           "directionName": "right",
-          "room": "CharmsClassroom",
+          "room": "ThirdFloorCorridor",
           "enabled": true,
           "validKeyNames": []
         }
       ],
-      "items": [
+      "items": [],
+      "spell": [
         {
-        "itemName": "Alohomora",
-        "itemDescription": "The Alohomora Spell lets you open locked doors."
+        "spellName": "Alohomora",
+        "spellDescription": "The Alohomora Spell lets you open locked doors."
+        }
+      ]
+    },
+    {
+      "name": "DefenseAgainstTheDarkArtsClassroom",
+      "description": "You are in the Defense Against the Dark Arts classroom.",
+      "directions": [
+        {
+          "directionName": "right",
+          "room": "FourthFloorCorridor",
+          "enabled": true,
+          "validKeyNames": []
+        }
+      ],
+      "items": [],
+      "spell": [
+        {
+          "spellName": "Alohomora",
+          "spellDescription": "The Alohomora Spell lets you open locked doors."
         }
       ]
     }

@@ -55,6 +55,16 @@ public class AdventuresTest {
     }
 
     @Test
+    public void parseItemName() throws Exception {
+        assertEquals("CloakOfInvisibility", layout.getRooms().get(0).getItems().get(0).getItemName());
+    }
+
+    @Test
+    public void parseSpellName() throws Exception {
+        assertEquals("Alohomora", layout.getRooms().get(7).getSpells().get(0).getSpellName());
+    }
+
+    @Test
     public void parseDirectionRoom() throws Exception {
         assertEquals("SiebelEntry", Adventures.getGameLayout().getRooms().get(0).getDirections().get(0).getRoom());
     }
