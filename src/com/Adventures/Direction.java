@@ -11,7 +11,7 @@ public class Direction {
 
     private String room;
 
-    private String enabled;
+    private boolean enabled;
 
     private ArrayList<String> validKeyNames;
 
@@ -23,7 +23,7 @@ public class Direction {
         return room;
     }
 
-    public String getEnabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 

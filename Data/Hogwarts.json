@@ -9,7 +9,7 @@
         {
           "directionName": "Outside the common room",
           "room": "SecondFloorCorridor",
-          "enabled": "True",
+          "enabled": true,
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -29,13 +29,13 @@
         {
           "directionName": "back to the common room",
           "room": "GryffindorCommonRoom",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the grand staircase",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         }
       ],
@@ -48,25 +48,25 @@
         {
           "directionName": "to the SecondFloorCorridor",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the ThirdFloorCorridor",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the FourthFloorCorridor",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the SeventhFloorCorridor",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         }
       ],
@@ -79,7 +79,7 @@
         {
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -87,13 +87,13 @@
         {
           "directionName": "left",
           "room": "CharmsCorridor",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "right",
           "room": "MysteryRoom",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": [
             "Harp"
           ]
@@ -108,7 +108,7 @@
         {
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -116,13 +116,13 @@
         {
           "directionName": "left",
           "room": "DefenseAgainstTheDarkArtsClassroom",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "right",
           "room": "GreenhouseOne",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         }
       ],
@@ -135,7 +135,7 @@
         {
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -143,7 +143,7 @@
         {
           "directionName": "left",
           "room": "RoomOfRequirement",
-          "enabled" : "True",
+          "enabled" : true,
           "validKeyNames": []
         }
       ],
@@ -156,13 +156,13 @@
         {
           "directionName": "left",
           "room": "ThirdFloorCorridor",
-          "enabled": "true",
+          "enabled": true,
           "validKeyNames": []
         },
         {
           "directionName": "right",
           "room": "CharmsClassroom",
-          "enabled": "true",
+          "enabled": true,
           "validKeyNames": []
         }
       ],
@@ -175,13 +175,13 @@
         {
           "directionName": "left",
           "room": "ThirdFloorCorridor",
-          "enabled": "true",
+          "enabled": true,
           "validKeyNames": []
         },
         {
           "directionName": "right",
           "room": "CharmsClassroom",
-          "enabled": "true",
+          "enabled": true,
           "validKeyNames": []
         }
       ],

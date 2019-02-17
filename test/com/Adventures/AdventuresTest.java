@@ -41,12 +41,17 @@ public class AdventuresTest {
 
     @Test
     public void parseRoomDescription() throws Exception {
-        assertEquals("You are on Matthews, outside the Siebel Center", Adventures.getGameLayout().getRooms().get(0).getDescription());
+        assertEquals("You are in the Gryffindor Common Room.", layout.getRooms().get(0).getDescription());
     }
 
     @Test
     public void parseDirectionName() throws Exception {
-        assertEquals("East", Adventures.getGameLayout().getRooms().get(0).getDirections().get(0).getDirectionName());
+        assertEquals("Outside the common room", layout.getRooms().get(0).getDirections().get(0).getDirectionName());
+    }
+
+    @Test
+    public void parseEnabledState() throws Exception {
+        assertTrue(layout.getRooms().get(3).getDirections().get(0).getEnabled());
     }
 
     @Test
