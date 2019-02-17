@@ -9,7 +9,7 @@
         {
           "directionName": "Outside the common room",
           "room": "SecondFloorCorridor",
-          "enabled": "True", //maybe change to false
+          "enabled": "True",
           "validKeyNames": [
             {
               "name": "CloakOfInvisibility"
@@ -29,13 +29,44 @@
       "description": "You are in the second floor corridor. You can see the Portrait of the Fat Lady and the grand staircase.",
       "directions": [
         {
-          "directionName": "back to the common room ",
+          "directionName": "back to the common room",
           "room": "GryffindorCommonRoom",
           "enabled" : "True",
           "validKeyNames": []
         },
         {
           "directionName": "to the grand staircase",
+          "room": "GrandStaircase",
+          "enabled" : "True",
+          "validKeyNames": []
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "GrandStaircase",
+      "description": "You are on the Grand Staircase. You can go to the second, third, fourth, or seventh floor.",
+      "directions": [
+        {
+          "directionName": "to the SecondFloorCorridor",
+          "room": "GrandStaircase",
+          "enabled" : "True",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "to the ThirdFloorCorridor",
+          "room": "GrandStaircase",
+          "enabled" : "True",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "to the FourthFloorCorridor",
+          "room": "GrandStaircase",
+          "enabled" : "True",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "to the SeventhFloorCorridor",
           "room": "GrandStaircase",
           "enabled" : "True",
           "validKeyNames": []
@@ -66,7 +97,7 @@
         {
           "directionName": "right",
           "room": "MysteryRoom",
-          "enabled" : "True", //maybe change to false? Add a loser message
+          "enabled" : "True",
           "validKeyNames": [
             {
               "name": "Harp"
@@ -78,111 +109,97 @@
     },
     {
       "name": "FourthFloorCorridor",
-      "description": "You are in the fourth floor corridor. You can see Siebel 1112 and the door toward NCSA.",
+      "description": "You are in the fourth floor corridor. The Defense Against the Dark Arts classroom is to your left and Greenhouse One is to your right. You can see the Grand Staircase.",
       "directions": [
         {
-          "directionName": "South",
-          "room": "SiebelEntry",
-          "enabled" : "",
+          "directionName": "to the Grand Staircase",
+          "room": "GrandStaircase",
+          "enabled" : "True",
           "validKeyNames": [
-
-          ]
-        }, 
-        {
-          "directionName": "NorthEast",
-          "room": "Siebel1112",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
-        }
-      ],
-      "items": [
-
-      ]
-    },
-    {
-      "name": "Siebel1112",
-      "description": "You are in Siebel 1112.  There is space for two code reviews in this room.",
-      "directions": [
-        {
-          "directionName": "West",
-          "room": "SiebelNorthHallway",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
-        }
-      ],
-      "items": [
-
-      ]
-    },
-    {
-      "name": "SiebelEastHallway",
-      "description": "You are in the east hallway.  You can see Einstein Bros' Bagels and a stairway.",
-      "directions": [
-        {
-          "directionName": "West",
-          "room": "SiebelEntry",
-          "enabled" : "",
-          "validKeyNames": [
-
+            {
+              "name": "CloakOfInvisibility"
+            }
           ]
         },
         {
-          "directionName": "South",
-          "room": "Siebel1314",
-          "enabled" : "",
+          "directionName": "left",
+          "room": "DefenseAgainstTheDarkArtsClassroom",
+          "enabled" : "True",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "right",
+          "room": "GreenhouseOne",
+          "enabled" : "True",
+          "validKeyNames": []
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "SeventhFloorCorridor",
+      "description": "You are on the seventh floor. The Room of Requirement is to your left. You can see the Grand Staircase.",
+      "directions": [
+        {
+          "directionName": "to the Grand Staircase",
+          "room": "GrandStaircase",
+          "enabled" : "True",
           "validKeyNames": [
-
+            {
+              "name": "CloakOfInvisibility"
+            }
           ]
         },
         {
-          "directionName": "Down",
-          "room": "SiebelBasement",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
+          "directionName": "left",
+          "room": "RoomOfRequirement",
+          "enabled" : "True",
+          "validKeyNames": []
         }
       ],
-      "items": [
-
-      ]
+      "items": []
     },
     {
-      "name": "Siebel1314",
-      "description": "You are in Siebel 1314.  There are happy CS 126 students doing a code review.",
+      "name": "CharmsCorridor",
+      "description": "You are on the charms corridor. The third floor corridor is to your left and the Charms classroom is in front of you. You can see the Grand Staircase.",
       "directions": [
         {
-          "directionName": "North",
-          "room": "SiebelEastHallway",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
+          "directionName": "left",
+          "room": "ThirdFloorCorridor",
+          "enabled": "true",
+          "validKeyNames": []
+        }
+        {
+          "directionName": "right",
+          "room": "CharmsClassroom",
+          "enabled": "true",
+          "validKeyNames": []
         }
       ],
-      "items": [
-
-      ]
+      "items": []
     },
     {
-      "name": "SiebelBasement",
-      "description": "You are in the basement of Siebel.  You see tables with students working and door to computer labs.",
+      "name": "CharmsClassroom",
+      "description": "You are in the charms classroom.",
       "directions": [
         {
-          "directionName": "Up",
-          "room": "SiebelEastHallway",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
+          "directionName": "left",
+          "room": "ThirdFloorCorridor",
+          "enabled": "true",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "right",
+          "room": "CharmsClassroom",
+          "enabled": "true",
+          "validKeyNames": []
         }
       ],
       "items": [
-
+        {
+        "itemName": "Alohomora",
+        "itemDescription": "The Alohomora Spell lets you open locked doors."
+        }
       ]
     }
   ],
