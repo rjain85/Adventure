@@ -12,30 +12,31 @@ import static org.junit.Assert.assertNull;
 
 public class AdventuresTest {
 
-    private String url = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
+    private String url = "https://pastebin.com/raw/jWrB4BAt";
 
     private static Adventures testingAdventure;
+    private Layout layout;
 
     @Before
     public void setUp() throws Exception {
         Gson gson = new Gson();
-        Adventures.makeApiRequest(url);
-        testingAdventure = gson.fromJson(DataForTesting.getFileContentsAsString("Data/siebelForTesting.json"), Adventures.class);
+        //Adventures.makeApiRequest(url);
+        layout = gson.fromJson(DataForTesting.getFileContentsAsString("Data/Hogwarts.json"), Layout.class);
     }
 
     @Test
     public void parseStartingRoomName() throws Exception {
-        assertEquals("MatthewsStreet", Adventures.getGameLayout().getStartingRoom());
+        assertEquals("GryffindorCommonRoom", layout.getStartingRoom());
     }
 
     @Test
     public void parseEndingRoomName() throws Exception {
-        assertEquals("Siebel1314", Adventures.getGameLayout().getEndingRoom());
+        assertEquals("MirrorRoom", layout.getEndingRoom());
     }
 
     @Test
     public void parseRoomName() throws Exception {
-        assertEquals("MatthewsStreet", Adventures.getGameLayout().getRooms().get(0).getName());
+        assertEquals("GryffindorCommonRoom", layout.getRooms().get(0).getName());
     }
 
     @Test

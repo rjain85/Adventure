@@ -11,9 +11,7 @@
           "room": "SecondFloorCorridor",
           "enabled": "True",
           "validKeyNames": [
-            {
-              "name": "CloakOfInvisibility"
-            }
+            "CloakOfInvisibility"
           ]
         }
       ],
@@ -83,9 +81,7 @@
           "room": "GrandStaircase",
           "enabled" : "True",
           "validKeyNames": [
-            {
-              "name": "CloakOfInvisibility"
-            }
+            "CloakOfInvisibility"
           ]
         },
         {
@@ -99,9 +95,7 @@
           "room": "MysteryRoom",
           "enabled" : "True",
           "validKeyNames": [
-            {
-              "name": "Harp"
-            }
+            "Harp"
           ]
         }
       ],
@@ -116,9 +110,7 @@
           "room": "GrandStaircase",
           "enabled" : "True",
           "validKeyNames": [
-            {
-              "name": "CloakOfInvisibility"
-            }
+            "CloakOfInvisibility"
           ]
         },
         {
@@ -145,9 +137,7 @@
           "room": "GrandStaircase",
           "enabled" : "True",
           "validKeyNames": [
-            {
-              "name": "CloakOfInvisibility"
-            }
+            "CloakOfInvisibility"
           ]
         },
         {
@@ -168,7 +158,7 @@
           "room": "ThirdFloorCorridor",
           "enabled": "true",
           "validKeyNames": []
-        }
+        },
         {
           "directionName": "right",
           "room": "CharmsClassroom",
