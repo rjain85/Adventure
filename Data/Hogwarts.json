@@ -1,85 +1,84 @@
 {
-  "startingRoom": "MatthewsStreet",
-  "endingRoom": "Siebel1314",
+  "startingRoom": "GryffindorCommonRoom",
+  "endingRoom": "MirrorRoom",
   "rooms": [
     {
-      "name": "MatthewsStreet",
-      "description": "You are on Matthews, outside the Siebel Center",
+      "name": "GryffindorCommonRoom",
+      "description": "You are in the Gryffindor Common Room.",
       "directions": [
         {
-          "directionName": "East",
-          "room": "SiebelEntry",
-          "enabled": "",
+          "directionName": "Outside the common room",
+          "room": "SecondFloorCorridor",
+          "enabled": "True", //maybe change to false
           "validKeyNames": [
-
+            {
+              "name": "CloakOfInvisibility"
+            }
           ]
         }
       ],
       "items": [
-
+        {
+        "itemName": "CloakOfInvisibility",
+        "itemMessage": "Do you want to pick up the Cloak of Invisibility"
+        }
       ]
     },
     {
-      "name": "SiebelEntry",
-      "description": "You are in the west entry of Siebel Center.  You can see the elevator, the ACM office, and hallways to the north and east.",
+      "name": "SecondFloorCorridor",
+      "description": "You are in the second floor corridor. You can see the Portrait of the Fat Lady and the grand staircase.",
       "directions": [
         {
-          "directionName": "West",
-          "room": "MatthewsStreet",
-          "enabled" : "",
+          "directionName": "back to the common room ",
+          "room": "GryffindorCommonRoom",
+          "enabled" : "True",
+          "validKeyNames": []
+        },
+        {
+          "directionName": "to the grand staircase",
+          "room": "GrandStaircase",
+          "enabled" : "True",
+          "validKeyNames": []
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "ThirdFloorCorridor",
+      "description": "You are in the Third Floor Corridor. The mystery room is to your right and the charms corridor is to your left. You can see the Grand Staircase." ,
+      "directions": [
+        {
+          "directionName": "to the Grand Staircase",
+          "room": "GrandStaircase",
+          "enabled" : "True",
           "validKeyNames": [
-
+            {
+              "name": "CloakOfInvisibility"
+            }
           ]
         },
         {
-          "directionName": "Northeast",
-          "room": "AcmOffice",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
+          "directionName": "left",
+          "room": "CharmsCorridor",
+          "enabled" : "True",
+          "validKeyNames": []
         },
         {
-          "directionName": "North",
-          "room": "SiebelNorthHallway",
-          "enabled" : "",
+          "directionName": "right",
+          "room": "MysteryRoom",
+          "enabled" : "True", //maybe change to false? Add a loser message
           "validKeyNames": [
-
-          ]
-        },
-        {
-          "directionName": "East",
-          "room": "SiebelEastHallway",
-          "enabled" : "",
-          "validKeyNames": [
-
+            {
+              "name": "Harp"
+            }
           ]
         }
       ],
-      "items": [
-
-      ]
+      "items": []
     },
     {
-      "name": "AcmOffice",
-      "description": "You are in the ACM office.  There are lots of friendly ACM people.",
-      "directions": [
-        {
-          "directionName": "South",
-          "room": "SiebelEntry",
-          "enabled" : "",
-          "validKeyNames": [
-
-          ]
-        }
-      ],
-      "items": [
-
-      ]
-    },
-    {
-      "name": "SiebelNorthHallway",
-      "description": "You are in the north hallway.  You can see Siebel 1112 and the door toward NCSA.",
+      "name": "FourthFloorCorridor",
+      "description": "You are in the fourth floor corridor. You can see Siebel 1112 and the door toward NCSA.",
       "directions": [
         {
           "directionName": "South",
