@@ -17,6 +17,8 @@ public class Room {
 
     private ArrayList<Spell> spells;
 
+    private String loserMessage;
+
     public String getName() {
         return name;
     }
@@ -35,6 +37,10 @@ public class Room {
 
     public ArrayList<Spell> getSpells() {
         return spells;
+    }
+
+    public String getLoserMessage() {
+        return loserMessage;
     }
 
     /**
