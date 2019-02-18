@@ -1,11 +1,18 @@
 package com.Adventures;
 
+import java.util.ArrayList;
+
 public class Player {
 
-    public boolean canFly;
+    private ArrayList<Spell> spells;
 
-    public boolean canApparate;
+    private ArrayList<Item> items;
 
-    public boolean canTouchQuirrel;
+    public ArrayList<Spell> getSpells() {
+        return spells;
+    }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 }

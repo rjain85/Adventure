@@ -1,6 +1,6 @@
 {
   "startingRoom": "GryffindorCommonRoom",
-  "endingRoom": "MirrorRoom",
+  "endingRoom": "FinalRoom",
   "rooms": [
     {
       "name": "GryffindorCommonRoom",
@@ -95,7 +95,7 @@
           "room": "MysteryRoom",
           "enabled" : true,
           "validKeyNames": [
-            "Harp"
+            "Alohomora"
           ]
         }
       ],
@@ -180,7 +180,7 @@
         }
       ],
       "items": [],
-      "spell": [
+      "spells": [
         {
         "spellName": "Alohomora",
         "spellDescription": "The Alohomora Spell lets you open locked doors."
@@ -199,17 +199,152 @@
         }
       ],
       "items": [],
-      "spell": [
+      "spells": [
         {
-          "spellName": "Alohomora",
-          "spellDescription": "The Alohomora Spell lets you open locked doors."
+          "spellName": "Expelliarmus",
+          "spellDescription": "Expelliarmus lets you disarm your opponent."
         }
       ]
+    },
+    {
+      "name": "GreenhouseOne",
+      "description": "You are in Greenhouse One.",
+      "directions": [
+        {
+          "directionName": "left",
+          "room": "FourthFloorCorridor",
+          "enabled": true,
+          "validKeyNames": []
+        }
+      ],
+      "items": [],
+      "spells": [
+        {
+          "spellName": "LumosSolem",
+          "spellDescription": "LumosSolem allows you to set things on fire. It can be used against Devil's Snare."
+        }
+      ]
+    },
+    {
+      "name": "RoomOfRequirement",
+      "description": "You are in the Room of Requirement.",
+      "directions": [
+        {
+          "directionName": "left",
+          "room": "FourthFloorCorridor",
+          "enabled": true,
+          "validKeyNames": []
+        }
+      ],
+      "items": [
+        {
+          "itemName": "Harp",
+          "itemMessage": "Do you want to pick up the harp?"
+        }
+      ],
+      "spells": []
+    },
+    {
+      "name": "MysteryRoom",
+      "description": "You are in the Mystery Room. Fluffy the three-headed dog is guarding the trapdoor.",
+      "directions": [
+        {
+          "directionName": "back",
+          "room": "ThirdFloorCorridor",
+          "enabled": true,
+          "validKeyNames": [
+            "CloakOfInvisibility"
+          ]
+        },
+        {
+          "directionName": "through the trapdoor",
+          "room": "DevilsSnareRoom",
+          "enabled": true,
+          "validKeyNames": [
+            "Harp"
+          ]
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "DevilsSnareRoom",
+      "description": "You are trapped in Devil's Snare!",
+      "directions": [
+        {
+          "directionName": "forward",
+          "room": "KeyRoom",
+          "enabled": true,
+          "validKeyNames": [
+            "Harp"
+          ]
+        }
+       ]
+    },
+    {
+      "name": "KeyRoom",
+      "description": "You are trapped in trapped in the Key Room! You can either use a broom to fly out or apparate.",
+      "directions": [
+        {
+          "directionName": "fly out",
+          "room": "MirrorRoom",
+          "enabled": false,
+          "validKeyNames": [
+            "flyingAbility"
+          ]
+        },
+        {
+          "directionName": "apparate",
+          "room": "MirrorRoom",
+          "enabled": false,
+          "validKeyNames": [
+            "apparateAbility"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MirrorRoom",
+      "description": "You have reached the mirror room and obtained the Sorcerer's Stone! But now, Professor Quirrel is attacking you! You can touch him or curse him.",
+      "directions": [
+        {
+          "directionName": "touch Professor Quirrel",
+          "room": "finalRoom",
+          "enabled": false,
+          "validKeyNames": [
+            "immunity"
+          ]
+        },
+        {
+          "directionName": "use Expelliarmus",
+          "room": "finalRoom",
+          "enabled": false,
+          "validKeyNames": [
+            "Expelliarmus"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FinalRoom",
+      "description": "You have won!",
+      "directions": []
     }
   ],
-  "Player": {
-    "items": [
 
-    ]
-  }
+  "Player": [
+    {
+      "name": "Harry",
+      "items": [
+        "flyingAbility",
+        "immunity"
+      ]
+    },
+    {
+      "name": "Hermione",
+      "items": [
+        "apparateAbility"
+      ]
+    }
+  ]
 }
