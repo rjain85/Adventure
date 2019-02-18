@@ -9,7 +9,8 @@
         {
           "directionName": "Outside the common room",
           "room": "SecondFloorCorridor",
-          "enabled": true,
+          "enabled": false,
+          "loserMessage": "Filch and Mrs. Norris have caught you! You lose.",
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -80,9 +81,7 @@
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
           "enabled" : true,
-          "validKeyNames": [
-            "CloakOfInvisibility"
-          ]
+          "validKeyNames": []
         },
         {
           "directionName": "left",
@@ -93,7 +92,7 @@
         {
           "directionName": "right",
           "room": "MysteryRoom",
-          "enabled" : true,
+          "enabled" : false,
           "validKeyNames": [
             "Alohomora"
           ]
@@ -109,9 +108,7 @@
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
           "enabled" : true,
-          "validKeyNames": [
-            "CloakOfInvisibility"
-          ]
+          "validKeyNames": []
         },
         {
           "directionName": "left",
@@ -136,9 +133,7 @@
           "directionName": "to the Grand Staircase",
           "room": "GrandStaircase",
           "enabled" : true,
-          "validKeyNames": [
-            "CloakOfInvisibility"
-          ]
+          "validKeyNames": []
         },
         {
           "directionName": "left",
@@ -252,14 +247,12 @@
           "directionName": "back",
           "room": "ThirdFloorCorridor",
           "enabled": true,
-          "validKeyNames": [
-            "CloakOfInvisibility"
-          ]
+          "validKeyNames": []
         },
         {
           "directionName": "through the trapdoor",
           "room": "DevilsSnareRoom",
-          "enabled": true,
+          "enabled": false,
           "validKeyNames": [
             "Harp"
           ]
@@ -274,9 +267,9 @@
         {
           "directionName": "forward",
           "room": "KeyRoom",
-          "enabled": true,
+          "enabled": false,
           "validKeyNames": [
-            "Harp"
+            "LumosSolem"
           ]
         }
        ]
@@ -290,7 +283,7 @@
           "room": "MirrorRoom",
           "enabled": false,
           "validKeyNames": [
-            "flyingAbility"
+            "FlyingAbility"
           ]
         },
         {
@@ -298,7 +291,7 @@
           "room": "MirrorRoom",
           "enabled": false,
           "validKeyNames": [
-            "apparateAbility"
+            "ApparateAbility"
           ]
         }
       ]
@@ -312,7 +305,7 @@
           "room": "finalRoom",
           "enabled": false,
           "validKeyNames": [
-            "immunity"
+            "Immunity"
           ]
         },
         {
@@ -336,14 +329,14 @@
     {
       "name": "Harry",
       "items": [
-        "flyingAbility",
-        "immunity"
+        "FlyingAbility",
+        "Immunity"
       ]
     },
     {
       "name": "Hermione",
       "items": [
-        "apparateAbility"
+        "ApparateAbility"
       ]
     }
   ]

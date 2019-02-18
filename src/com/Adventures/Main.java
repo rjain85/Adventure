@@ -10,7 +10,7 @@ import static com.Adventures.Adventures.gameLayout;
  */
 public class Main {
     public static void main(String[] arguments) {
-        String url = "https://pastebin.com/raw/q9qg5SUp";
+        String url = "https://pastebin.com/raw/MZpxLhPx";
 
         catchApiRequestExceptions(url);
 
