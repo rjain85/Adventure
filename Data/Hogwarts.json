@@ -4,7 +4,7 @@
   "rooms": [
     {
       "name": "GryffindorCommonRoom",
-      "description": "You are in the Gryffindor Common Room.",
+      "description": "GOD GIVE ME ANOTHER SIGN. You are in the Gryffindor Common Room.",
       "directions": [
         {
           "directionName": "Outside the common room",
@@ -48,25 +48,25 @@
       "directions": [
         {
           "directionName": "to the SecondFloorCorridor",
-          "room": "GrandStaircase",
+          "room": "SecondFloorCorridor",
           "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the ThirdFloorCorridor",
-          "room": "GrandStaircase",
+          "room": "ThirdFloorCorridor",
           "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the FourthFloorCorridor",
-          "room": "GrandStaircase",
+          "room": "FourthFloorCorridor",
           "enabled" : true,
           "validKeyNames": []
         },
         {
           "directionName": "to the SeventhFloorCorridor",
-          "room": "GrandStaircase",
+          "room": "SeventhFloorCorridor",
           "enabled" : true,
           "validKeyNames": []
         }
@@ -302,7 +302,7 @@
       "directions": [
         {
           "directionName": "touch Professor Quirrel",
-          "room": "finalRoom",
+          "room": "FinalRoom",
           "enabled": false,
           "validKeyNames": [
             "Immunity"
@@ -310,7 +310,7 @@
         },
         {
           "directionName": "use Expelliarmus",
-          "room": "finalRoom",
+          "room": "FinalRoom",
           "enabled": false,
           "validKeyNames": [
             "Expelliarmus"

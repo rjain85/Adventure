@@ -12,7 +12,8 @@ import java.util.Scanner;
 /**
  * This class hold the methods and objects for the whole game.
  */
-public class Adventures {
+public class Adventure {
+
 
     /**
      * The code for HTTP instance okay.
@@ -66,6 +67,11 @@ public class Adventures {
         } catch (MalformedURLException e) {
             System.out.println("Bad URL: " + url);
         }
+    }
+
+    public static void setUp(String fileName) throws Exception {
+        Gson gson = new Gson();
+        gameLayout = gson.fromJson(DataForTesting.getFileContentsAsString(fileName), Layout.class);
     }
 
     /**
@@ -181,7 +187,7 @@ public class Adventures {
         //If the input begins with go, check if the user indicates a direction and then return it.
         String checkDirection = userInputEdited.substring(2,(userInputEdited.length()));
         for (Direction possibleDirection : currentRoom.getDirections()) {
-            if (checkDirection.equals(possibleDirection.getDirectionName().toLowerCase())) {
+            if (checkDirection.equals(possibleDirection.getDirectionName().toLowerCase().replaceAll("\\s+",""))) {
                 return possibleDirection;
             }
         }
