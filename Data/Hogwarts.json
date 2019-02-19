@@ -92,7 +92,7 @@
         {
           "directionName": "right",
           "room": "MysteryRoom",
-          "loser message": "You couldn't unlock the door and Filch caught you! Well, well, well, we are in trouble! GAME OVER.",
+          "loserMessage": "You couldn't unlock the door and Filch caught you! Well, well, well, we are in trouble! GAME OVER.",
           "enabled" : false,
           "validKeyNames": [
             "Alohomora"
@@ -128,7 +128,7 @@
     },
     {
       "name": "SeventhFloorCorridor",
-      "description": "You are on the seventh floor. The Room of Requirement is to your left. You can see the Grand Staircase.",
+      "description": "You are on the seventh floor. You can see the Grand Staircase.",
       "directions": [
         {
           "directionName": "to the Grand Staircase",
@@ -137,9 +137,10 @@
           "validKeyNames": []
         },
         {
-          "directionName": "left",
+          "directionName": "to the room of requirement",
           "room": "RoomOfRequirement",
           "enabled" : true,
+          "hidden": true,
           "validKeyNames": []
         }
       ],
@@ -147,7 +148,7 @@
     },
     {
       "name": "CharmsCorridor",
-      "description": "You are on the charms corridor. The third floor corridor is to your left and the Charms classroom is in front of you. You can see the Grand Staircase.",
+      "description": "You are on the charms corridor. The third floor corridor is to your right and the Charms classroom is in front of you.",
       "directions": [
         {
           "directionName": "right",
@@ -156,7 +157,7 @@
           "validKeyNames": []
         },
         {
-          "directionName": "left",
+          "directionName": "forward",
           "room": "CharmsClassroom",
           "enabled": true,
           "validKeyNames": []
@@ -166,11 +167,11 @@
     },
     {
       "name": "CharmsClassroom",
-      "description": "You are in the charms classroom.",
+      "description": "You are in the charms classroom. You can go back to the charms corridor.",
       "directions": [
         {
-          "directionName": "right",
-          "room": "ThirdFloorCorridor",
+          "directionName": "back",
+          "room": "CharmsCorridor",
           "enabled": true,
           "validKeyNames": []
         }
@@ -178,7 +179,7 @@
       "items": [
         {
           "itemName": "Alohomora",
-          "itemDescription": "The Alohomora Spell lets you open locked doors."
+          "itemDescription": "The Alohomora Spell lets you open locked doors. Would you like to learn Alohomora?"
         }
       ]
     },
@@ -187,7 +188,7 @@
       "description": "You are in the Defense Against the Dark Arts classroom.",
       "directions": [
         {
-          "directionName": "right",
+          "directionName": "back",
           "room": "FourthFloorCorridor",
           "enabled": true,
           "validKeyNames": []
@@ -196,7 +197,7 @@
       "items": [
         {
         "itemName": "Expelliarmus",
-        "itemDescription": "Expelliarmus lets you disarm your opponent."
+        "itemDescription": "Expelliarmus lets you disarm your opponent. Would you like to learn Expelliarmus?"
         }
       ]
     },
@@ -205,7 +206,7 @@
       "description": "You are in Greenhouse One.",
       "directions": [
         {
-          "directionName": "left",
+          "directionName": "back",
           "room": "FourthFloorCorridor",
           "enabled": true,
           "validKeyNames": []
@@ -214,7 +215,7 @@
       "items": [
         {
         "itemName": "LumosSolem",
-        "itemDescription": "LumosSolem allows you to set things on fire. It can be used against Devil's Snare."
+        "itemDescription": "LumosSolem allows you to set things on fire. It can be used against Devil's Snare. Would you like to learn Lumos Solem?"
         }
       ]
     },
@@ -223,8 +224,8 @@
       "description": "You are in the Room of Requirement.",
       "directions": [
         {
-          "directionName": "left",
-          "room": "FourthFloorCorridor",
+          "directionName": "back",
+          "room": "SeventhFloorCorridor",
           "enabled": true,
           "validKeyNames": []
         }
@@ -271,7 +272,8 @@
             "LumosSolem"
           ]
         }
-       ]
+       ],
+      "items": []
     },
     {
       "name": "KeyRoom",
@@ -295,11 +297,12 @@
             "ApparateAbility"
           ]
         }
-      ]
+      ],
+      "items": []
     },
     {
       "name": "MirrorRoom",
-      "description": "You have reached the mirror room and obtained the Sorcerer's Stone! But now, Professor Quirrel is attacking you! You can touch him or curse him.",
+      "description": "You have reached the Mirror of Erised and obtained the Sorcerer's Stone! But now, Professor Quirrel is attacking you! You can touch him or curse him.",
       "directions": [
         {
           "directionName": "touch Professor Quirrel",
@@ -319,12 +322,14 @@
             "Expelliarmus"
           ]
         }
-      ]
+      ],
+      "items": []
     },
     {
       "name": "FinalRoom",
       "description": "You have won! Professor Dumbledore thanks you!",
-      "directions": []
+      "directions": [],
+      "items": []
     }
   ],
 

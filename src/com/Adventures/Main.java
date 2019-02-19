@@ -3,7 +3,6 @@ package com.Adventures;
 import java.util.Scanner;
 
 import static com.Adventures.Adventure.gameLayout;
-import static com.Adventures.Adventure.setUp;
 
 /**
  * Class in which user inputs are taken and game methods are implemented.
@@ -19,7 +18,7 @@ public class Main {
 
         String fileNameFromCommand = arguments[0];
 
-        setUp(fileNameFromCommand);
+        gamePlay.setUp(fileNameFromCommand);
 
         Scanner takesUserInput = new Scanner(System.in);
 

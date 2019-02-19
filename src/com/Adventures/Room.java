@@ -15,11 +15,7 @@ public class Room {
 
     private ArrayList<Item> items;
 
-    private ArrayList<Spell> spells;
-
     private String loserMessage;
-
-    private boolean enabled;
 
     public String getName() {
         return name;
@@ -37,16 +33,8 @@ public class Room {
         return items;
     }
 
-    public ArrayList<Spell> getSpells() {
-        return spells;
-    }
-
     public String getLoserMessage() {
         return loserMessage;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
     }
 
     /**
@@ -65,9 +53,11 @@ public class Room {
                 presentOptions.append(getDirections().get(i).getDirectionName());
                 presentOptions.append(", ");
             }
+        if (!(getDirections().get(getDirections().size() - 1).isHidden())) {
             presentOptions.append("or ");
             presentOptions.append(getDirections().get(getDirections().size() - 1).getDirectionName());
             presentOptions.append(".");
+            }
         }
         return presentOptions.toString();
     }

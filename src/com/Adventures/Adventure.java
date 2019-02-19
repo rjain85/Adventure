@@ -71,7 +71,7 @@ public class Adventure {
         }
     }
 
-    public static void setUp(String fileName) throws Exception {
+    public void setUp(String fileName) throws Exception {
         Gson gson = new Gson();
         gameLayout = gson.fromJson(DataForTesting.getFileContentsAsString(fileName), Layout.class);
     }
@@ -117,9 +117,11 @@ public class Adventure {
 
             if (currentRoom.getItems().size() != 0) {
                 System.out.println(currentRoom.getItems().get(0).getItemDescription());
+                String responseToItem = takesUserInput.nextLine();
+                if(isInputYes(responseToItem)) {
+                    player.getItems().add(currentRoom.getItems().get(0));
+                }
             }
-
-            String responseToItem = takesUserInput.nextLine();
 
             // If the current room is not the final room, a list of potential directions is printed.
             if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
@@ -145,7 +147,7 @@ public class Adventure {
             // If the player correctly passes a valid room, they are moved to that room.
             if (checkUserInput(currentInput, currentRoom) != null) {
                 //check if the room is enabled, and if so move the player to that room
-                 if(findRoomByName(checkUserInput(currentInput, currentRoom).getRoom()).isEnabled()) {
+                 if(checkUserInput(currentInput, currentRoom).getEnabled()) {
                      currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
                  } else {
                     if (canPlayerUnlock(checkUserInput(currentInput, currentRoom).getValidKeyNames().get(0))) {
@@ -156,6 +158,10 @@ public class Adventure {
                     }
                  }
             }
+        }
+
+        if ((currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+            System.out.println(currentRoom.getDescription());
         }
     }
 
@@ -264,7 +270,12 @@ public class Adventure {
         }
     }
 
-    public boolean isInputYesOrNo(String input) {
+    public boolean isInputYes(String input) {
+        if (input.toLowerCase().equals("yes")) {
+            return true;
+        } else if (input.toLowerCase().equals("false")) {
+            return false;
+        }
         return false;
     }
 

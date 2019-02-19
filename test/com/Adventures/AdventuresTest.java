@@ -60,11 +60,6 @@ public class AdventuresTest {
     }
 
     @Test
-    public void parseSpellName() throws Exception {
-        assertEquals("Alohomora", layout.getRooms().get(7).getSpells().get(0).getSpellName());
-    }
-
-    @Test
     public void parseLoserMessage() throws Exception {
         assertEquals("Filch and Mrs. Norris have caught you! GAME OVER.", layout.getRooms().get(0).getDirections().get(0).getLoserMessage());
     }
@@ -72,6 +67,11 @@ public class AdventuresTest {
     @Test
     public void parsePlayerName() throws Exception {
         assertEquals("Harry", layout.getPlayers().get(0).getName());
+    }
+
+    @Test
+    public void parseEnabled() throws Exception {
+        assertTrue(layout.getRooms().get(2).getDirections().get(0).getEnabled());
     }
 
     // Tests for createOptions

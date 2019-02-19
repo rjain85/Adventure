@@ -17,6 +17,8 @@ public class Direction {
 
     private String loserMessage;
 
+    private boolean hidden;
+
     public String getDirectionName() {
         return directionName;
     }
@@ -35,6 +37,9 @@ public class Direction {
 
     public String getLoserMessage() {
         return loserMessage;
+    }
+    public boolean isHidden() {
+        return hidden;
     }
 
 }
