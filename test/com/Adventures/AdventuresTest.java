@@ -65,8 +65,13 @@ public class AdventuresTest {
     }
 
     @Test
-    public void parseDirectionRoom() throws Exception {
-        assertEquals("SiebelEntry", Adventure.getGameLayout().getRooms().get(0).getDirections().get(0).getRoom());
+    public void parseLoserMessage() throws Exception {
+        assertEquals("Filch and Mrs. Norris have caught you! GAME OVER.", layout.getRooms().get(0).getDirections().get(0).getLoserMessage());
+    }
+
+    @Test
+    public void parsePlayerName() throws Exception {
+        assertEquals("Harry", layout.getPlayers().get(0).getName());
     }
 
     // Tests for createOptions

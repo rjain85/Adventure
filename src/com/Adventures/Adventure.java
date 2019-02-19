@@ -34,11 +34,6 @@ public class Adventure {
     }
 
     /**
-     * First two lines of game.
-     */
-    public String beginGame = (gameLayout.getRooms().get(0).getDescription() + "\n" + "Your journey begins here");
-
-    /**
      * Message that allows you to exit game.
      */
     public String exitMessage = "exit";
@@ -51,13 +46,20 @@ public class Adventure {
     /**
      * Message that initializes game with first set of options.
      */
-    public String initializeGame = (beginGame + "\n" + gameLayout.getRooms().get(0).createOptions());
+    public String initializeGame = "Your journey begins now.";
 
     /**
      * Makes Api request and catches exceptions and prints error message otherwise.
      * Calls makeApiRequest method.
      * @param url for JSON.
      */
+
+    public Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
     public static void catchApiRequestExceptions(String url) {
         try {
             makeApiRequest(url);
@@ -106,10 +108,23 @@ public class Adventure {
      * @param currentRoom The Room the player starts in, typically the first.
      * @param takesUserInput A scanner to take Strings the user types into the console.
      */
-    public void createGameLooper (Room currentRoom, Scanner takesUserInput ) {
+    public void loopThroughGame(Room currentRoom, Scanner takesUserInput ) {
 
         // While the player has not reached the final room.
         while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+            // A description of the current room is printed.
+            System.out.println(currentRoom.getDescription());
+
+            if (currentRoom.getItems().size() != 0) {
+                System.out.println(currentRoom.getItems().get(0).getItemDescription());
+            }
+
+            String responseToItem = takesUserInput.nextLine();
+
+            // If the current room is not the final room, a list of potential directions is printed.
+            if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
+                System.out.println(currentRoom.createOptions());
+            }
 
             // The scanner takes the players input.
             String currentInput = takesUserInput.nextLine();
@@ -123,21 +138,23 @@ public class Adventure {
             if (validUrl(currentInput)) {
                 Scanner newScanner = new Scanner(System.in);
                 validUrl(currentInput);
-                createGameLooper(gameLayout.getRooms().get(0), newScanner);
+                loopThroughGame(gameLayout.getRooms().get(0), newScanner);
                 break;
             }
 
             // If the player correctly passes a valid room, they are moved to that room.
             if (checkUserInput(currentInput, currentRoom) != null) {
-                currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
-            }
-
-            // A description of the current room is printed.
-            System.out.println(currentRoom.getDescription());
-
-            // If the current room is not the final room, a list of potential directions is printed.
-            if (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
-                System.out.println(currentRoom.createOptions());
+                //check if the room is enabled, and if so move the player to that room
+                 if(findRoomByName(checkUserInput(currentInput, currentRoom).getRoom()).isEnabled()) {
+                     currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
+                 } else {
+                    if (canPlayerUnlock(checkUserInput(currentInput, currentRoom).getValidKeyNames().get(0))) {
+                        currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
+                    } else {
+                        System.out.print(checkUserInput(currentInput, currentRoom).getLoserMessage());
+                        break;
+                    }
+                 }
             }
         }
     }
@@ -236,7 +253,6 @@ public class Adventure {
      * @return whether or not the URL passed is valid.
      */
     public boolean validUrl(String userInput) {
-
         /**
          * If a String is longer than 8 characters and begins with "https://", then an API request is made.
          */
@@ -246,5 +262,46 @@ public class Adventure {
         } else {
             return false;
         }
+    }
+
+    public boolean isInputYesOrNo(String input) {
+        return false;
+    }
+
+    /**
+     * Checks whether the player has the necessary object to unlock a room.
+     * @param keyName the item needed to enter that room
+     * @return whether or not the Player can unlock the room
+     */
+    public boolean canPlayerUnlock(String keyName) {
+        for (Item item : player.getItems()) {
+            if (item.getItemName().equals(keyName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Player choosePlayer(Scanner inputScanner) {
+        boolean playerSelected = false;
+
+        while (!playerSelected) {
+            System.out.println("Choose your character! You may play as: ");
+            for (Player p: gameLayout.getPlayers()) {
+                System.out.println(p.getName());
+            }
+            String userInput = inputScanner.nextLine();
+            for (Player p: gameLayout.getPlayers()) {
+                if (userInput.toLowerCase().equals(p.getName().toLowerCase())) {
+                    player = p;
+                    playerSelected = true;
+                }
+            }
+
+            if (!playerSelected) {
+                System.out.println("Invalid player.");
+            }
+        }
+        return player;
     }
 }

@@ -15,6 +15,8 @@ public class Direction {
 
     private ArrayList<String> validKeyNames;
 
+    private String loserMessage;
+
     public String getDirectionName() {
         return directionName;
     }
@@ -29,6 +31,10 @@ public class Direction {
 
     public ArrayList<String> getValidKeyNames() {
         return validKeyNames;
+    }
+
+    public String getLoserMessage() {
+        return loserMessage;
     }
 
 }

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Player {
 
-    private ArrayList<Spell> spells;
+    private String name;
 
     private ArrayList<Item> items;
 
-    public ArrayList<Spell> getSpells() {
-        return spells;
+    public String getName() {
+        return name;
     }
 
     public ArrayList<Item> getItems() {

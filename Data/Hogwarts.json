@@ -4,13 +4,13 @@
   "rooms": [
     {
       "name": "GryffindorCommonRoom",
-      "description": "GOD GIVE ME ANOTHER SIGN. You are in the Gryffindor Common Room.",
+      "description": "You are in the Gryffindor Common Room.",
       "directions": [
         {
           "directionName": "Outside the common room",
           "room": "SecondFloorCorridor",
           "enabled": false,
-          "loserMessage": "Filch and Mrs. Norris have caught you! You lose.",
+          "loserMessage": "Filch and Mrs. Norris have caught you! GAME OVER.",
           "validKeyNames": [
             "CloakOfInvisibility"
           ]
@@ -19,7 +19,7 @@
       "items": [
         {
         "itemName": "CloakOfInvisibility",
-        "itemMessage": "Do you want to pick up the Cloak of Invisibility"
+        "itemDescription": "Do you want to pick up the Cloak of Invisibility?"
         }
       ]
     },
@@ -92,6 +92,7 @@
         {
           "directionName": "right",
           "room": "MysteryRoom",
+          "loser message": "You couldn't unlock the door and Filch caught you! Well, well, well, we are in trouble! GAME OVER.",
           "enabled" : false,
           "validKeyNames": [
             "Alohomora"
@@ -174,11 +175,10 @@
           "validKeyNames": []
         }
       ],
-      "items": [],
-      "spells": [
+      "items": [
         {
-        "spellName": "Alohomora",
-        "spellDescription": "The Alohomora Spell lets you open locked doors."
+          "itemName": "Alohomora",
+          "itemDescription": "The Alohomora Spell lets you open locked doors."
         }
       ]
     },
@@ -193,11 +193,10 @@
           "validKeyNames": []
         }
       ],
-      "items": [],
-      "spells": [
+      "items": [
         {
-          "spellName": "Expelliarmus",
-          "spellDescription": "Expelliarmus lets you disarm your opponent."
+        "itemName": "Expelliarmus",
+        "itemDescription": "Expelliarmus lets you disarm your opponent."
         }
       ]
     },
@@ -212,11 +211,10 @@
           "validKeyNames": []
         }
       ],
-      "items": [],
-      "spells": [
+      "items": [
         {
-          "spellName": "LumosSolem",
-          "spellDescription": "LumosSolem allows you to set things on fire. It can be used against Devil's Snare."
+        "itemName": "LumosSolem",
+        "itemDescription": "LumosSolem allows you to set things on fire. It can be used against Devil's Snare."
         }
       ]
     },
@@ -234,10 +232,9 @@
       "items": [
         {
           "itemName": "Harp",
-          "itemMessage": "Do you want to pick up the harp?"
+          "itemDescription": "Do you want to pick up the harp?"
         }
-      ],
-      "spells": []
+      ]
     },
     {
       "name": "MysteryRoom",
@@ -252,6 +249,7 @@
         {
           "directionName": "through the trapdoor",
           "room": "DevilsSnareRoom",
+          "loserMessage" : "Fluffy ate you and you died a most painful death. GAME OVER.",
           "enabled": false,
           "validKeyNames": [
             "Harp"
@@ -265,9 +263,10 @@
       "description": "You are trapped in Devil's Snare!",
       "directions": [
         {
-          "directionName": "forward",
+          "directionName": "use Lumos Solem",
           "room": "KeyRoom",
           "enabled": false,
+          "loserMessage": "The Devil's Snare strangled you and you died a most painful death. GAME OVER.",
           "validKeyNames": [
             "LumosSolem"
           ]
@@ -282,6 +281,7 @@
           "directionName": "fly out",
           "room": "MirrorRoom",
           "enabled": false,
+          "loserMessage": "You can't fly! You fell and died! GAME OVER.",
           "validKeyNames": [
             "FlyingAbility"
           ]
@@ -290,6 +290,7 @@
           "directionName": "apparate",
           "room": "MirrorRoom",
           "enabled": false,
+          "loserMessage": "You can't apparate! You splinched yourself and died! GAME OVER.",
           "validKeyNames": [
             "ApparateAbility"
           ]
@@ -304,6 +305,7 @@
           "directionName": "touch Professor Quirrel",
           "room": "FinalRoom",
           "enabled": false,
+          "loserMessage": "You cannot touch Quirrel. Voldemort kills you and you die. GAME OVER",
           "validKeyNames": [
             "Immunity"
           ]
@@ -312,6 +314,7 @@
           "directionName": "use Expelliarmus",
           "room": "FinalRoom",
           "enabled": false,
+          "loserMessage": "You can't use this spell! Quirrel kills you and you die! GAME OVER.",
           "validKeyNames": [
             "Expelliarmus"
           ]
@@ -320,24 +323,35 @@
     },
     {
       "name": "FinalRoom",
-      "description": "You have won!",
+      "description": "You have won! Professor Dumbledore thanks you!",
       "directions": []
     }
   ],
 
-  "Player": [
+  "players": [
     {
       "name": "Harry",
+      "description": "You are Harry Potter! You are a very talented flier. Because your mother sacrificed herself for you, Lord Voldemort cannot touch you without causing great harm to himself.",
       "items": [
-        "FlyingAbility",
-        "Immunity"
+        {
+          "itemName": "FlyingAbility",
+          "itemDescription": "You have the ability to fly!"
+        },
+        {
+          "itemName": "Immunity",
+          "itemDescription": "You are immune to Lord Voldemort's touch!"
+        }
       ]
     },
     {
       "name": "Hermione",
       "items": [
-        "ApparateAbility"
-      ]
+        {
+          "itemName": "ApparateAbility",
+          "itemDescription": "You have the ability to apparate!"
+        }
+      ],
+      "description": "You are Hermione Granger! You are the brightest witch of your age and can already apparate."
     }
   ]
 }

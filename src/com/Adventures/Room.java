@@ -19,6 +19,8 @@ public class Room {
 
     private String loserMessage;
 
+    private boolean enabled;
+
     public String getName() {
         return name;
     }
@@ -41,6 +43,10 @@ public class Room {
 
     public String getLoserMessage() {
         return loserMessage;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
     /**

@@ -2,7 +2,6 @@ package com.Adventures;
 
 import java.util.Scanner;
 
-import static com.Adventures.Adventure.catchApiRequestExceptions;
 import static com.Adventures.Adventure.gameLayout;
 import static com.Adventures.Adventure.setUp;
 
@@ -22,9 +21,9 @@ public class Main {
 
         setUp(fileNameFromCommand);
 
-        Adventure gamePlay = new Adventure();
-
         Scanner takesUserInput = new Scanner(System.in);
+
+        gamePlay.choosePlayer(takesUserInput);
 
         // Print first Strings to initialize game.
         System.out.println(gamePlay.initializeGame);
@@ -33,7 +32,9 @@ public class Main {
         Room currentRoom = gameLayout.getRooms().get(0);
 
         // Run the loop which implements the remaining methods for the game.
-        gamePlay.createGameLooper(currentRoom, takesUserInput);
+        gamePlay.loopThroughGame(currentRoom, takesUserInput);
 
     }
+
+    public static Adventure gamePlay = new Adventure();
 }
