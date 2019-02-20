@@ -22,13 +22,13 @@ public class Adventure {
     /**
      * GameLayout for holding rooms. .
      */
-    public static Layout gameLayout;
+    private Layout gameLayout;
 
     /**
      * getter for GameLayout.
      * @return gameLayout
      */
-    public static Layout getGameLayout() {
+    public Layout getGameLayout() {
         return gameLayout;
     }
 
@@ -255,7 +255,7 @@ public class Adventure {
      * @param userInput The String passed by the user.
      * @return whether or not the URL passed is valid.
      */
-    public boolean validUrl(String userInput) {
+    public boolean validUrl(final String userInput) {
         /**
          * If a String is longer than 8 characters and begins with "https://", then an API request is made.
          */
@@ -281,7 +281,7 @@ public class Adventure {
      * @param keyName the item needed to enter that room
      * @return whether or not the Player can unlock the room
      */
-    public boolean canPlayerUnlock(String keyName) {
+    public boolean canPlayerUnlock(final String keyName) {
         for (Item item : player.getItems()) {
             if (item.getItemName().equals(keyName)) {
                 return true;
@@ -295,7 +295,7 @@ public class Adventure {
      * @param inputScanner to take the user's choice
      * @return
      */
-    public Player choosePlayer(Scanner inputScanner) {
+    public Player choosePlayer(final Scanner inputScanner) {
         boolean playerSelected = false;
 
         // The loop will run until the user correctly selects a player.

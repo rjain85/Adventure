@@ -2,7 +2,6 @@ package com.Adventures;
 
 import java.util.Scanner;
 
-import static com.Adventures.Adventure.gameLayout;
 
 /**
  * Class in which user inputs are taken and game methods are implemented.
@@ -40,7 +39,7 @@ public class Main {
         System.out.println(gamePlay.initializeGame);
 
         // Set the current room to the first one.
-        Room currentRoom = gameLayout.getRooms().get(0);
+        Room currentRoom = gamePlay.getGameLayout().getRooms().get(0);
 
         // Run the loop which implements the remaining methods for the game.
         gamePlay.loopThroughGame(currentRoom, inputScanner);
