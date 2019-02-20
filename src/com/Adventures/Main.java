@@ -8,17 +8,9 @@ import static com.Adventures.Adventure.gameLayout;
  * Class in which user inputs are taken and game methods are implemented.
  */
 public class Main {
-    public static void main(String[] arguments) throws Exception {
+    public static void main(String[] arguments) throws Exception{
 
-        //String url = arguments[0];
-
-        //String url = "https://pastebin.com/raw/1RPk7im3";
-
-        //catchApiRequestExceptions(url);
-
-        String fileNameFromCommand = arguments[0];
-
-        gamePlay.setUp(fileNameFromCommand);
+        recieveURLfromCOMMAND(arguments[0]);
 
         Scanner takesUserInput = new Scanner(System.in);
 
@@ -36,4 +28,18 @@ public class Main {
     }
 
     public static Adventure gamePlay = new Adventure();
+
+    /**
+     * allow user to pass a URL or filename throught the command line;
+     * @param firstArgument the first argument passed through the commandLine
+     * @throws Exception
+     */
+    public static void recieveURLfromCOMMAND (String firstArgument) throws Exception {
+
+        if (firstArgument.length() > 8 && firstArgument.substring(0, 8).equals("https://")) {
+            gamePlay.catchApiRequestExceptions(firstArgument);
+        } else {
+            gamePlay.setUp(firstArgument);
+        }
+    }
 }

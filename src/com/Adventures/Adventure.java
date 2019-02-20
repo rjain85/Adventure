@@ -136,14 +136,6 @@ public class Adventure {
                 break;
             }
 
-            //If the player passes a valid url, the game is replayed with a new JSON file.
-            if (validUrl(currentInput)) {
-                Scanner newScanner = new Scanner(System.in);
-                validUrl(currentInput);
-                loopThroughGame(gameLayout.getRooms().get(0), newScanner);
-                break;
-            }
-
             // If the player correctly passes a valid room, they are moved to that room.
             if (checkUserInput(currentInput, currentRoom) != null) {
                 //check if the room is enabled, and if so move the player to that room
