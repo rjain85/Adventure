@@ -8,25 +8,10 @@ import static com.Adventures.Adventure.gameLayout;
  * Class in which user inputs are taken and game methods are implemented.
  */
 public class Main {
-    public static void main(String[] arguments) throws Exception{
 
-        recieveURLfromCOMMAND(arguments[0]);
-
-        Scanner takesUserInput = new Scanner(System.in);
-
-        gamePlay.choosePlayer(takesUserInput);
-
-        // Print first Strings to initialize game.
-        System.out.println(gamePlay.initializeGame);
-
-        // Set the current room to the first one.
-        Room currentRoom = gameLayout.getRooms().get(0);
-
-        // Run the loop which implements the remaining methods for the game.
-        gamePlay.loopThroughGame(currentRoom, takesUserInput);
-
-    }
-
+    /**
+     * Instance of adventure to run game methods.
+     */
     public static Adventure gamePlay = new Adventure();
 
     /**
@@ -41,5 +26,24 @@ public class Main {
         } else {
             gamePlay.setUpJSON(firstArgument);
         }
+    }
+
+    public static void main(String[] arguments) throws Exception{
+
+        recieveURLfromCOMMAND(arguments[0]);
+
+        Scanner inputScanner = new Scanner(System.in);
+
+        gamePlay.choosePlayer(inputScanner);
+
+        // Print first Strings to initialize game.
+        System.out.println(gamePlay.initializeGame);
+
+        // Set the current room to the first one.
+        Room currentRoom = gameLayout.getRooms().get(0);
+
+        // Run the loop which implements the remaining methods for the game.
+        gamePlay.loopThroughGame(currentRoom, inputScanner);
+
     }
 }

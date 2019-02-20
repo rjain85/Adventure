@@ -48,7 +48,7 @@ public class Adventure {
     public String initializeGame = "Your journey begins now.";
 
     /**
-     * instance of Player for th user to play the game.
+     * Instance of Player for the user to play the game.
      */
     public Player player;
 
@@ -57,11 +57,10 @@ public class Adventure {
      * Calls makeApiRequest method.
      * @param url for JSON.
      */
-    public static void catchApiRequestExceptions(String url) {
+    public void catchApiRequestExceptions(String url) {
         try {
             makeApiRequest(url);
         } catch (UnirestException e) {
-//            e.printStackTrace();
             System.out.println("Network not responding");
         } catch (MalformedURLException e) {
             System.out.println("Bad URL: " + url);
@@ -84,7 +83,7 @@ public class Adventure {
      * @throws UnirestException
      * @throws MalformedURLException
      */
-    public static void makeApiRequest(String url) throws UnirestException, MalformedURLException {
+    public void makeApiRequest(String url) throws UnirestException, MalformedURLException {
         final HttpResponse<String> stringHttpResponse;
 
         // This will throw MalformedURLException if the url is malformed.
@@ -108,9 +107,9 @@ public class Adventure {
     /**
      * While loop that moves players through rooms, prints appropriate messages, and checks if the game is over,
      * @param currentRoom The Room the player starts in, typically the first.
-     * @param takesUserInput A scanner to take Strings the user types into the console.
+     * @param inputScanner A scanner to take Strings the user types into the console.
      */
-    public void loopThroughGame(Room currentRoom, Scanner takesUserInput ) {
+    public void loopThroughGame(Room currentRoom, Scanner inputScanner ) {
 
         // While the player has not reached the final room.
         while (!(currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
@@ -120,7 +119,7 @@ public class Adventure {
             // If the room contains an item, the description is printed.
             if (currentRoom.getItems().size() != 0) {
                 System.out.println(currentRoom.getItems().get(0).getItemDescription());
-                String responseToItem = takesUserInput.nextLine();
+                String responseToItem = inputScanner.nextLine();
 
                 // The player can then indicate if they wish to take the item.
                 if (isInputYes(responseToItem)) {
@@ -135,7 +134,7 @@ public class Adventure {
             }
 
             // The scanner takes the players input.
-            String currentInput = takesUserInput.nextLine();
+            String currentInput = inputScanner.nextLine();
 
             // If the input is "Exit" or "Quit", the game ends.
             if (gameOver(currentInput)) {
@@ -145,11 +144,13 @@ public class Adventure {
             // If the player correctly passes a valid room, they are moved to that room.
             if (checkUserInput(currentInput, currentRoom) != null) {
                 //check if the room is enabled, and if so move the player to that room
-                 if(checkUserInput(currentInput, currentRoom).getEnabled()) {
+                 if (checkUserInput(currentInput, currentRoom).getEnabled()) {
                      currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
                  } else {
+                     // If the room is not enabled but the player has the key, moves player to that room.
                     if (canPlayerUnlock(checkUserInput(currentInput, currentRoom).getValidKeyNames().get(0))) {
                         currentRoom = findRoomByName(checkUserInput(currentInput, currentRoom).getRoom());
+                     // Prints the loser message and ends the game.
                     } else {
                         System.out.print(checkUserInput(currentInput, currentRoom).getLoserMessage());
                         break;
@@ -158,6 +159,7 @@ public class Adventure {
             }
         }
 
+        // If the player has reached the final room, prints its description.
         if ((currentRoom.getName().equals(gameLayout.getEndingRoom()))) {
             System.out.println(currentRoom.getDescription());
         }
