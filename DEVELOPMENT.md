@@ -15,5 +15,20 @@ I plan to:
 - Improve Overall Design:
   - remove if statements from some boolean methods and just return boolean expressions
   - create a separate class for JSON parsing
-- Improve Automatic Testing:
-  - Test game logic, perhaps simulate a game
+  
+Plan for new assignment:
+
+- Create a .json file mimicking structure of Hogwarts School from Harry Potter
+- Create an Item class to parse Items from Hogwarts.json. 
+- Create player options in Hogwarts.json
+  - create a Player class to parse player options. Players will have different abilities, which are stored as Item objects
+- Add a boolean "hidden" to .json to allow some rooms to be hidden from player.
+  - check for hidden in createOptions method of Room class.
+- Update loopThroughGame in Adventure class so that it takes user input on items and checks for validKeyNames.
+  - add helper method to let user choose player.
+  - add other helper methods to let user collect objects.
+  
+Issues:
+
+- Several nullPointerExceptions from errors and typos made in creating the .json.
+
