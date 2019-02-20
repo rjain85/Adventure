@@ -39,7 +39,7 @@ public class Main {
         if (firstArgument.length() > 8 && firstArgument.substring(0, 8).equals("https://")) {
             gamePlay.catchApiRequestExceptions(firstArgument);
         } else {
-            gamePlay.setUp(firstArgument);
+            gamePlay.setUpJSON(firstArgument);
         }
     }
 }

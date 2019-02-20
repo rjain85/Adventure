@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class Adventure {
 
-
     /**
      * The code for HTTP instance okay.
      */
@@ -49,17 +48,15 @@ public class Adventure {
     public String initializeGame = "Your journey begins now.";
 
     /**
+     * instance of Player for th user to play the game.
+     */
+    public Player player;
+
+    /**
      * Makes Api request and catches exceptions and prints error message otherwise.
      * Calls makeApiRequest method.
      * @param url for JSON.
      */
-
-    public Player player;
-
-    public Player getPlayer() {
-        return player;
-    }
-
     public static void catchApiRequestExceptions(String url) {
         try {
             makeApiRequest(url);
@@ -71,7 +68,12 @@ public class Adventure {
         }
     }
 
-    public void setUp(String fileName) throws Exception {
+    /**
+     * takes .json filename and parses is to gameLayout;
+     * @param fileName
+     * @throws Exception
+     */
+    public void setUpJSON(String fileName) throws Exception {
         Gson gson = new Gson();
         gameLayout = gson.fromJson(DataForTesting.getFileContentsAsString(fileName), Layout.class);
     }
@@ -115,10 +117,14 @@ public class Adventure {
             // A description of the current room is printed.
             System.out.println(currentRoom.getDescription());
 
+            // If the room contains an item, the description is printed.
             if (currentRoom.getItems().size() != 0) {
                 System.out.println(currentRoom.getItems().get(0).getItemDescription());
                 String responseToItem = takesUserInput.nextLine();
-                if(isInputYes(responseToItem)) {
+
+                // The player can then indicate if they wish to take the item.
+                if (isInputYes(responseToItem)) {
+                    // The item is added to the player's item array.
                     player.getItems().add(currentRoom.getItems().get(0));
                 }
             }
@@ -161,7 +167,7 @@ public class Adventure {
      * Generates a message if the user passes a non-location.
      * @param whereToGo The String passed by the user.
      */
-    public void createCantGoMessage(final String whereToGo) {
+    public void printCantGoMessage(final String whereToGo) {
         System.out.println("I can't go to '" + whereToGo + "'");
     }
 
@@ -169,7 +175,7 @@ public class Adventure {
      * Generates a message if the user passes a String that does not begin with "go"
      * @param meaninglessPhrase The String passed by the user.
      */
-    public void createDontUnderstandMessage(final String meaninglessPhrase) {
+    public void printDontUnderstandMessage(final String meaninglessPhrase) {
         System.out.println("I don't understand '" + meaninglessPhrase + "'");
     }
 
@@ -188,14 +194,14 @@ public class Adventure {
 
         // If the input is less than two characters long, return no direction.
         if (userInputEdited.length() < 2) {
-            createDontUnderstandMessage(userInput);
+            printDontUnderstandMessage(userInput);
             return null;
         }
 
         //If the input does not begin with "go", return no direction.
         String checkGo = userInputEdited.substring(0, 2);
         if (!checkGo.equals("go")) {
-            createDontUnderstandMessage(userInput);
+            printDontUnderstandMessage(userInput);
             return null;
         }
 
@@ -208,7 +214,7 @@ public class Adventure {
         }
 
         //If the user does not indicate a direction, print an  appropriate message and return null.
-        createCantGoMessage(userInput);
+        printCantGoMessage(userInput);
         return null;
     }
 
@@ -239,10 +245,7 @@ public class Adventure {
         String userInputEdited = userInput.replaceAll("\\s+","");
         userInputEdited = userInputEdited.toLowerCase();
 
-        if (userInputEdited.equals(exitMessage) || userInputEdited.equals(quitMessage)) {
-            return true;
-        }
-        return false;
+        return (userInputEdited.equals(exitMessage) || userInputEdited.equals(quitMessage));
     }
 
     /**
@@ -262,13 +265,13 @@ public class Adventure {
         }
     }
 
+    /**
+     * Checks if the player input is "yes".
+     * @param input
+     * @return
+     */
     public boolean isInputYes(String input) {
-        if (input.toLowerCase().equals("yes")) {
-            return true;
-        } else if (input.toLowerCase().equals("false")) {
-            return false;
-        }
-        return false;
+        return(input.toLowerCase().equals("yes"));
     }
 
     /**
@@ -285,14 +288,24 @@ public class Adventure {
         return false;
     }
 
+    /**
+     * Parses player options from .json file so user can choose a player.
+     * @param inputScanner to take the user's choice
+     * @return
+     */
     public Player choosePlayer(Scanner inputScanner) {
         boolean playerSelected = false;
 
+        // The loop will run until the user correctly selects a player.
         while (!playerSelected) {
             System.out.println("Choose your character! You may play as: ");
+
+            // Prints player options.
             for (Player p: gameLayout.getPlayers()) {
                 System.out.println(p.getName());
             }
+
+            // Checks if user's input matches a player.
             String userInput = inputScanner.nextLine();
             for (Player p: gameLayout.getPlayers()) {
                 if (userInput.toLowerCase().equals(p.getName().toLowerCase())) {
@@ -300,7 +313,7 @@ public class Adventure {
                     playerSelected = true;
                 }
             }
-
+            //Prints if user fails to choose a valid player.
             if (!playerSelected) {
                 System.out.println("Invalid player.");
             }
